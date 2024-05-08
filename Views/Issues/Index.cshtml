@@ -1,0 +1,108 @@
+﻿ @model IEnumerable<SGCTicketSystem.Models.Issues>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Issues List</h2>
+<p>
+    @Html.ActionLink("Create New", "NewIssues")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TickentNn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Branch)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comments)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Category)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Priority)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AssignedTo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OpenedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OpenedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DueDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RelatedIssues)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Department)
+        </th>
+    </tr>
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.TickentNn)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Branch.BranchName)
+    </td>
+    <th>
+        @Html.DisplayFor(modelItem => item.Comments)
+    </th>
+    <td>
+        @Html.DisplayFor(modelItem => item.Category.Description)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Priority.PriorityCategory)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Status.StatusDescription)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Title)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.AssignedTo)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.OpenedBy)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.OpenedDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Description)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DueDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.RelatedIssues)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Department.DepartmentName)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "EditIssues", "Issues", new { id = item.IssuesId }, null) |
+        @Html.ActionLink("Details", "Details","", new { id = item.IssuesId }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.IssuesId })
+    </td>
+</tr>
+}
+
+</table>

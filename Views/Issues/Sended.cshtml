@@ -1,0 +1,24 @@
+﻿@model IEnumerable<SGCTicketSystem.Models.Issues>
+@{
+    ViewBag.Title = "Sended";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Sended</h2>
+
+@using (Html.BeginForm("SendedTicket", "Issues"))
+{
+        <div>
+            <b>@ViewBag.viewbag</b> 
+            @Html.AntiForgeryToken()
+            @Html.ActionLink("Back to List", "Index")
+            <div class="form-group"></div>
+            <div class="col-md-offset-0">
+                @*<input type="submit" value="Add Category" class="btn-default" />*@
+            </div>
+
+        </div>
+    
+}
+
+
